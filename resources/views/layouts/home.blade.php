@@ -8,13 +8,13 @@
   <!-- Favicon-->
     @if(App::isLocal())
       <link rel="shortcut icon" href="{{ asset('img/useplogo.png') }}" type="image/x-icon" />
-      <link rel="stylesheet" href="{{ asset('css/home.css') }}" type="text/css">
+      <link rel="stylesheet" href="https://ozugazette.herokuapp.com/css/home.css" type="text/css">
     @elseif(Request::server('HTTP_X_FORWARDED_PROTO') == 'https')
       <link rel="shortcut icon" href="{{ asset('img/useplogo.png') }}" type="image/x-icon" />
-      <link rel="stylesheet" href="{{ asset('css/home.css') }}" type="text/css">
+      <link rel="stylesheet" href="https://ozugazette.herokuapp.com/css/home.css" type="text/css">
     @else
       <link rel="shortcut icon" href="{{ asset('img/useplogo.png') }}" type="image/x-icon" />
-      <link rel="stylesheet" href="{{ asset('css/home.css') }}" type="text/css">
+      <link rel="stylesheet" href="https://ozugazette.herokuapp.com/css/home.css" type="text/css">
     @endif
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
