@@ -69,8 +69,8 @@
                         <label class="col-sm-3 form-control-label">Status: </label>
                         <div class="col-sm-9">
                           <select class="form-control" id="meetingshow" name="meetingshow" data-parsley-trigger="focus" data-parsley-error-message="Invalid! This is required and must not contain numbers or special characters" value="{{ old('meetingshow') }}" >
-                            <option value="Hide">Hide</option>
-                            <option value="Show">Show</option>
+                            <option value="Hidden">Hide</option>
+                            <option value="Shown">Show</option>
                           </select>
                         </div>
                       </div>

@@ -77,15 +77,6 @@
                           <input type="text" name="note" class="form-control" data-parsley-trigger="focus" data-parsley-error-message="Invalid! This is <b>optional</b> and must not contain numbers or special characters" value="{{ old('note') }}">
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label class="col-sm-3 form-control-label">Status: </label>
-                        <div class="col-sm-9">
-                          <select class="form-control" id="meetingshow" name="meetingshow" data-parsley-trigger="focus" data-parsley-error-message="Invalid! This is required and must not contain numbers or special characters" value="{{ old('meetingshow') }}" >
-                            <option value="Hide">Hide</option>
-                            <option value="Show">Show</option>
-                          </select>
-                        </div>
-                      </div>
                       <div class="line my-4"></div>
                       <div class="form-navigation btn-group w-100 my-1">
                         <input id="submit" type="submit" value="SUBMIT" class="mi btn btn-danger w-50" > 

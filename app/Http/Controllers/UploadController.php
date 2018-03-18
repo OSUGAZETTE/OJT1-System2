@@ -40,7 +40,6 @@ class UploadController extends Controller
         $meetingdate = Input::get('date');
         $venue = Input::get('venue');
         $note = Input::get('note');
-        $meetingshow = Input::get('meetingshow');
 
         //Validation for both the input in which both of them are required
         $rules = array(
@@ -48,7 +47,6 @@ class UploadController extends Controller
             'meeting_name' => 'required|unique:meeting,MeetingName',
             'date' => 'required|date',
             'venue' => 'required',
-            'meetingshow' => 'required'
         );
 
         //Check Requirements in rules
@@ -104,7 +102,7 @@ class UploadController extends Controller
                         'MeetingDate' => $usableDate,
                         'Venue' => $venue,
                         'Note' => $note,
-                        'MeetingShow' => $meetingshow
+                        'MeetingShow' => "Shown"
                 );
 
                 //insert to history database
