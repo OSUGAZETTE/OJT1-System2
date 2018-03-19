@@ -59,6 +59,7 @@
           <h1 class="text-danger display-5 mb-3">Gazette</h1>
         </div>
         <div class="col-md-12">
+        	<gcse:search></gcse:search>
           <div class="pull-right">
               <form method="GET" action="{{ url('/') }}" role="search" class="form-inline">
                 <div class="form-group custom-search-form">
@@ -131,4 +132,18 @@
       </div>
     </div>
   </div>
+
+<script>
+  (function() {
+    var cx = '004848418752946485203:xtipyay2kg0';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
 @endsection
