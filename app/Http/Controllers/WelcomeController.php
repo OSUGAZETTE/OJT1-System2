@@ -24,7 +24,7 @@ class WelcomeController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function welcome(){
-        $downloadpdf = MeetingModel::search()->where('MeetingShow', 'Shown')->orderBy('MeetingDate', 'des')->paginate(10);
+        $downloadpdf = MeetingModel::search()->where('MeetingShow', 'Shown11')->orderBy('MeetingDate', 'des')->paginate(10);
         return view('welcome', ['meetings' => $downloadpdf]);
     }
 
