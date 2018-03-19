@@ -16,16 +16,18 @@
         <div class="col-md-12">
           <div class="card my-3">
             <div class="card-close CC">
-              <form method="GET" action="{{ url('/Home') }}" role="search" class="navbar-form navbar-left mb-0">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control " name="search" placeholder="Search...">
-                      <span class="input-group-btn">
-                        <button class="mi btn text-white btn-danger" type="submit">
-                            Submit
-                        </button>
-                      </span>
-                </div>
-              </form>
+              <script>
+                (function() {
+                  var cx = '006639713279106712301:iheeyz2wswy';
+                  var gcse = document.createElement('script');
+                  gcse.type = 'text/javascript';
+                  gcse.async = true;
+                  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                  var s = document.getElementsByTagName('script')[0];
+                  s.parentNode.insertBefore(gcse, s);
+                })();
+              </script>
+              <gcse:search></gcse:search>
             </div>
             <div class="card-header d-flex align-items-center">
               <h3 class="h4">Meetings</h3>
