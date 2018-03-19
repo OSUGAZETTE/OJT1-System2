@@ -59,7 +59,7 @@
           <h1 class="text-danger display-5 mb-3">Gazette</h1>
         </div>
         <div class="col-md-12">
-        	<gcse:search></gcse:search>
+        <gcse:search></gcse:search>
           <div class="pull-right">
               <form method="GET" action="{{ url('/') }}" role="search" class="form-inline">
                 <div class="form-group custom-search-form">
