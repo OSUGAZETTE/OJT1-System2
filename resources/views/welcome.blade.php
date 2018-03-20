@@ -62,7 +62,7 @@
           <div class="pull-right">
               <script>
                 (function() {
-                  var cx = '006639713279106712301:jzb1xtcbia4';
+                  var cx = '006639713279106712301:fosd2yaa2hm';
                   var gcse = document.createElement('script');
                   gcse.type = 'text/javascript';
                   gcse.async = true;
