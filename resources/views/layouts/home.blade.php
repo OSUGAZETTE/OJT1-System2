@@ -18,6 +18,7 @@
     @endif
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <meta name="google-site-verification" content="eJvi-tHl8d6htk0ubDU8GKhrvf6ECuNtUHsej-8K8KU" />
 </head>
 <body>
 	@yield('content')

@@ -46,7 +46,6 @@
             <span class="ml-5"></span>The University of Southeastern Philippines Records Office is a branch of the university that handles and stores all the University’s legal documents of all campuses. They ensure the integrity, accuracy, and security of all academic records of current and former employees; builds secure employee data files and sets policy and procedure for their responsible use; maintains up-to-date course schedules, catalogs, meeting schedules; manages efficient use of classrooms.</p>
           <p class="lead mb-" style="font-family: arial;">
           <span class="ml-5"></span>The Records Office shall be one of the strong forces that would contribute to the attainment of the University’s goal as a premier university by ensuring the preservation, security and integrity of all University records.</p>
-
         </div>
       </div>
     </div>
