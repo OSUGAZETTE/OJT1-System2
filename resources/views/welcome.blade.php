@@ -62,13 +62,19 @@
           <div class="pull-right">
               <script>
                 (function() {
-                  var cx = '006639713279106712301:fosd2yaa2hm';
+                  var cx = '006639713279106712301:83eprba0x1w';
                   var gcse = document.createElement('script');
                   gcse.type = 'text/javascript';
                   gcse.async = true;
                   gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
                   var s = document.getElementsByTagName('script')[0];
                   s.parentNode.insertBefore(gcse, s);
+                  customSearchControl.setSearchStartingCallback(
+                    this,
+                    function(control, searcher, query) {
+                      searcher.setQueryAddition('filetype:pdf');
+                    }
+                  );
                 })();
               </script>
               <gcse:search></gcse:search>
