@@ -102,7 +102,27 @@
                     <td class="p-2" style="vertical-align: middle; width: 30%;">
                       <div class="form-navigation">
                         <button style="cursor: pointer;" id="<?php echo $meeting->MeetingID ?>" class="editbtn mi btn btn-danger w-100 p-0" >EDIT</button> 
-                        <a href="/Delete/<?php echo $meeting->MeetingID ?>" class="w-100"><button  class="mi btn btn-outline-danger w-100 p-0" type="button">DELETE</button></a>
+                        <button  class="mi btn btn-outline-danger w-100 p-0" data-target="#delete_<?php echo $meeting->MeetingID ?>" type="button" data-toggle="modal" type="button">DELETE</button>
+                         <!-- START of MODAL for deleting users -->
+                            <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade text-left" id="delete_<?php echo $meeting->MeetingID ?>" role="dialog" style="z-index: 10500;" tabindex="-1">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header" style="background-color: #860c23; color: white; display: block;">
+                                    <h2 class="cust-h2 mb-0">Delete Document</h2>
+                                      </div>
+                                      <div class="modal-body p-1">
+                                        <center><h2 class="mt-2" style="font-weight: 400; font-size: 16px">Are you sure you want to delete this "<?php echo $meeting->MeetingName ?>"  ?</h2></center>
+                                      </div>
+                                      <div class="modal-footer p-2">
+                                        <a href="/Delete/<?php echo $meeting->MeetingID ?>" class="w-50">
+                                          <button class="btn btn-danger w-100" type="button">DELETE</button>
+                                        </a>
+                                        <button class="btn btn-secondary w-50" data-dismiss="modal" type="button">CANCEL</button>
+                                    </div>
+                                  </div>
+                                </div>
+                             </div>
+                         <!-- End of Modal -->
                       </div>
                     </td>
                     <td class="p-2" style="vertical-align: middle; width:70%">

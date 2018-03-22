@@ -18,7 +18,7 @@
             <div class="card-close CC">
               <form method="GET" action="{{ url('/Home') }}" role="search" class="navbar-form navbar-left mb-0">
                 <div class="input-group custom-search-form">
-                    <input type="text" class="form-control " name="search" placeholder="Search...">
+                    <input type="text" class="form-control " name="search" placeholder="Search..." > 
                       <span class="input-group-btn">
                         <button class="mi btn text-white btn-danger" type="submit">
                             Submit

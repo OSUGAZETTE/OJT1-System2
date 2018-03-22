@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2018 at 06:21 AM
+-- Generation Time: Mar 22, 2018 at 01:05 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -43,7 +43,32 @@ INSERT INTO `history` (`History_ID`, `Action`, `File_Name`, `TimeStamp`) VALUES
 (1, 'CREATE', 'Meeting 1', '2018-02-28 05:53:13'),
 (2, 'CREATE', 'Meeting 2', '2018-03-09 06:46:30'),
 (3, 'CREATE', 'Meeting 2', '2018-03-09 06:47:44'),
-(4, 'CREATE', 'Meeting 3', '2018-03-09 09:08:07');
+(4, 'CREATE', 'Meeting 3', '2018-03-09 09:08:07'),
+(5, 'DELETE', 'Meeting 1', '2018-03-10 21:39:51'),
+(6, 'UPDATE', 'Meeting 2', '2018-03-10 21:44:25'),
+(7, 'UPDATE', 'Meeting 2', '2018-03-10 21:46:44'),
+(8, 'CREATE', 'Meeting 4', '2018-03-10 21:50:48'),
+(9, 'UPDATE', 'Meeting 4', '2018-03-10 21:51:20'),
+(10, 'UPDATE', 'Meeting 2', '2018-03-10 21:58:45'),
+(11, 'UPDATE', 'Meeting 4', '2018-03-15 21:53:01'),
+(12, 'CREATE', 'Meeting 6', '2018-03-15 21:57:14'),
+(13, 'CREATE', 'Meeting 1', '2018-03-19 06:02:30'),
+(14, 'DELETE', 'Meeting 1', '2018-03-20 21:59:48'),
+(15, 'CREATE', 'Meeting 1', '2018-03-20 22:02:36'),
+(16, 'CREATE', 'Meeting 2', '2018-03-21 18:42:12'),
+(17, 'CREATE', 'Meeting 3', '2018-03-21 19:22:40'),
+(18, 'UPDATE', 'Meeting 2', '2018-03-21 21:44:23'),
+(19, 'UPDATE', 'Meeting 1', '2018-03-21 22:11:07'),
+(20, 'UPDATE', 'Meeting 3', '2018-03-21 22:13:09'),
+(21, 'UPDATE', 'Meeting 4', '2018-03-21 22:13:30'),
+(22, 'UPDATE', 'Meeting 3', '2018-03-21 22:14:34'),
+(23, 'UPDATE', 'Meeting 1', '2018-03-21 22:16:40'),
+(24, 'UPDATE', 'Meeting 2', '2018-03-21 22:18:31'),
+(25, 'UPDATE', 'Meeting 4', '2018-03-21 22:18:51'),
+(26, 'UPDATE', 'Meeting 4', '2018-03-21 22:19:25'),
+(27, 'UPDATE', 'Meeting 4', '2018-03-21 22:36:31'),
+(28, 'UPDATE', 'Meeting 1', '2018-03-21 22:36:45'),
+(29, 'UPDATE', 'Meeting 4', '2018-03-21 23:05:09');
 
 -- --------------------------------------------------------
 
@@ -58,17 +83,18 @@ CREATE TABLE `meeting` (
   `MeetingDate` date NOT NULL,
   `Venue` varchar(255) NOT NULL,
   `Note` varchar(500) DEFAULT NULL,
-  `MeetingShow` tinyint(1) NOT NULL
+  `MeetingShow` varchar(10) NOT NULL,
+  `tags` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `meeting`
 --
 
-INSERT INTO `meeting` (`MeetingID`, `MeetingName`, `MeetingFileName`, `MeetingDate`, `Venue`, `Note`, `MeetingShow`) VALUES
-(1, 'Meeting 1', '02282018 - Meeting 1 .pdf', '2018-02-28', 'SM', NULL, 0),
-(2, 'Meeting 2', '03092018 - Meeting 2 .pdf', '2018-03-09', 'sadfdf', NULL, 0),
-(3, 'Meeting 3', '03162018 - Meeting 3 .pdf', '2018-03-16', 'asdasd', NULL, 1);
+INSERT INTO `meeting` (`MeetingID`, `MeetingName`, `MeetingFileName`, `MeetingDate`, `Venue`, `Note`, `MeetingShow`, `tags`) VALUES
+(2, 'Meeting 1', '03032009 - Meeting 1.pdf', '2009-03-03', 'Soc. Hall', NULL, 'Shown', 'one,two,three'),
+(3, 'Meeting 4', '08112014 - Meeting 4.pdf', '2014-08-11', 'NCCC', NULL, 'Shown', 'two,three,four'),
+(4, 'Meeting 3', '12212018 - Meeting 3.pdf', '2018-12-21', 'USEP', NULL, 'Shown', 'Help, kill, med');
 
 -- --------------------------------------------------------
 
@@ -126,7 +152,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `u_fname`, `u_mname`, `u_lname`, `email`, `password`, `u_profpic`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Rhobert', 'Vincent', 'Odoya', '123@gmail.com', '$2b$10$FMR4SODhAN4zDcmJrAUbgO84L33rojLdmUuQX1XDKe7sJKF2yEzr2', NULL, 'KEFi6bsqn0aoKyDciI6IM9us88b8ZMpWvNZBx3bd6bSgNdvGK5boY4dXX9nE', '2018-02-28 05:30:38', NULL);
+(1, 'Rhobert', 'Vincent', 'Odoya', '123@gmail.com', '$2b$10$FMR4SODhAN4zDcmJrAUbgO84L33rojLdmUuQX1XDKe7sJKF2yEzr2', NULL, 'DGa33i8WG13oVeox5Q75cX5iOwablqqZKx7z3GQkreWBgAh3vAAw53vsZudI', '2018-02-28 05:30:38', NULL);
 
 --
 -- Indexes for dumped tables
@@ -171,12 +197,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `History_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `History_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `meeting`
 --
 ALTER TABLE `meeting`
-  MODIFY `MeetingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MeetingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `migrations`
 --

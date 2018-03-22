@@ -71,7 +71,7 @@ class EditDeleteController extends Controller
                 $updatemeeting->MeetingShow = Input::get('meetingshow');
                 
 
-                $updateman = MeetingModel::where('MeetingName', '=', Input::get('meeting_name'))->first();
+                $updateman = Input::file('meetingfile');
                 //If the user also uploads a new file
                 if($request->hasFile('meetingfile')){
 
@@ -106,7 +106,7 @@ class EditDeleteController extends Controller
                 }
 
                 //If the user changes only the other details
-                else if ($updateman === null){
+                else if ($updateman == null){
                     //Get the new File Name and Date updated
                     $docuname = Input::get('meeting_name');
                     $date = DateTime::createFromFormat('Y-m-d', Input::get('date'));
