@@ -74,6 +74,12 @@
                           </select>
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label class="col-sm-3 form-control-label">Tags <small>(separate by comma)</small> : </label>
+                        <div class="col-sm-9">
+                          <input type="text" id="tags" name="tags" class="form-control" data-parsley-trigger="focus" data-parsley-error-message="Invalid! This is required and must not contain numbers or special characters" value="{{ old('tags') }}">
+                        </div>
+                      </div>
                 <div class="line my-4"></div>
                 <div class="form-navigation btn-group w-100 my-1">
                   <input class="mi btn btn-danger w-50" id="submit" type="submit" value="SUBMIT"> <button class="mi btn btn-outline-danger w-50" id="cancel" type="button" value="">CANCEL</button>
@@ -189,6 +195,7 @@
           $('#date').val(data[0].MeetingDate);
           $('#venue').val(data[0].Venue);
           $('#meetingshow').val(data[0].MeetingShow);
+          $('#tags').val(data[0].tags);
           if(data[0].Note != ''){
             $('#note').val(data[0].Note);
           }

@@ -110,10 +110,13 @@
     
 
     <script >
-    function alphaOnly(event) {
-      var key = event.keyCode;
-      return ((key >= 65 && key <= 90) || key == 8);
-    };
+    var start = 1900;
+    var end = new Date().getFullYear();
+    var options = "";
+    for(var year = start ; year <=end; year++){
+      options += "<option>"+ year +"</option>";
+    }
+    document.getElementById("year").innerHTML = options;
 
 
     $('.list-unstyled>li>a').on('click', function(){

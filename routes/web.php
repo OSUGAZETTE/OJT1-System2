@@ -12,11 +12,13 @@
 */
 
 Route::get('/', 'WelcomeController@welcome')->name('Welcome');
+Route::get('/Welcome/Date', 'WelcomeController@dateSearch')->name('Welcome/Date');
 /*Route::get('/admin', 'AdminController@welcome')->name('WelcomeAdmin');*/
 
 Auth::routes();
 
 Route::get('/Home', 'HomeController@index')->name('Home');
+Route::get('/Date', 'HomeController@dateSearch');
 Route::get('/Upload', 'UploadController@index')->name('Upload');
 Route::post('/Upload', 'UploadController@uploadpdf')->name('Uploadpdf');
 

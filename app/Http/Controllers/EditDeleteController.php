@@ -51,7 +51,8 @@ class EditDeleteController extends Controller
             'meeting_name' => "required|unique:meeting,MeetingName,$mid,MeetingID",
             'date' => 'required|date',
             'venue' => 'required',
-            'meetingshow' => 'required'
+            'meetingshow' => 'required',
+            'tags' => 'required'
         );
 
         //Check Requirements in rules
@@ -69,6 +70,17 @@ class EditDeleteController extends Controller
                 $updatemeeting->Venue = Input::get('venue');
                 $updatemeeting->Note = Input::get('note');
                 $updatemeeting->MeetingShow = Input::get('meetingshow');
+
+                $tags = Input::get('tags');
+
+                $tags = preg_replace('/\W/',' ', $tags);
+                $tags = preg_replace('/\s+/', ' ', $tags);
+                $tags = trim($tags);
+                $tags = explode(' ', $tags);
+                $tags = array_unique($tags);
+                $tags = implode(', ', $tags);
+
+                $updatemeeting->Tags = $tags;
                 
 
                 $updateman = Input::file('meetingfile');

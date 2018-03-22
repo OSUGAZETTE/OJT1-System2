@@ -26,6 +26,31 @@
                       </span>
                 </div>
               </form>
+               <form method="GET" action="{{ url('/Date') }}" role="search" class="navbar-form navbar-left mb-0">
+                <div class="input-group custom-search-form">
+                    <select name="month">
+                      <option value="Month">Month</option>
+                      <option value="01">January</option>
+                      <option value="02">February</option>
+                      <option value="03">March</option>
+                      <option value="04">April</option>
+                      <option value="05">May</option>
+                      <option value="06">June</option>
+                      <option value="07">July</option>
+                      <option value="08">August</option>
+                      <option value="09">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <select id="year" name="year">
+                      <option value="0">Year</option>
+                    </select>
+                    <button class="mi btn text-white btn-danger" type="submit">
+                            Submit
+                    </button>
+                </div>
+              </form>
             </div>
             <div class="card-header d-flex align-items-center">
               <h3 class="h4">Meetings</h3>
