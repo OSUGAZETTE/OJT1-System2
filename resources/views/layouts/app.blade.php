@@ -110,6 +110,17 @@
     
 
     <script >
+<<<<<<< HEAD
+=======
+    var start = 1900;
+    var end = new Date().getFullYear();
+    var options = "";
+    for(var year = start ; year <=end; year++){
+      options += "<option>"+ year +"</option>";
+    }
+    document.getElementById("year").innerHTML = options;
+
+>>>>>>> fca653f7858ccb9756f6e8e1be82494d8e80abd4
 
     $('.list-unstyled>li>a').on('click', function(){
         $('.list-unstyled').collapse('hide');

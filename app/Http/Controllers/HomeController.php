@@ -99,4 +99,33 @@ class HomeController extends Controller
             return view('home', ['meetings' => $meetings]);
         }
     }
+
+    public function dateSearch()
+    {
+        $msearch = Input::get('month');
+        $ysearch = Input::get('year');
+        
+        if($msearch == "Month" && $ysearch == "1900"){
+            return redirect()->route('Home'); 
+        }
+        elseif ($msearch != "Month" && $ysearch == "1900"){
+            $meetings = MeetingModel::whereMonth('MeetingDate', '=', $msearch)
+                                    ->orderBy('MeetingDate', 'des')
+                                    ->paginate(10);
+            return view('home', ['meetings' => $meetings]);
+        }
+        elseif ( $msearch == "Month" && $ysearch != "1900"){
+            $meetings = MeetingModel::whereYear('MeetingDate', '=', $ysearch)
+                                    ->orderBy('MeetingDate', 'des')
+                                    ->paginate(10);
+            return view('home', ['meetings' => $meetings]);
+        }
+        elseif ( $msearch != "Month" && $ysearch != "1900"){
+            $meetings = MeetingModel::whereYear('MeetingDate', '=', $ysearch)
+                                    ->whereMonth('MeetingDate', '=', $msearch)
+                                    ->orderBy('MeetingDate', 'des')
+                                    ->paginate(10);
+            return view('home', ['meetings' => $meetings]);
+        }
+    }
 }

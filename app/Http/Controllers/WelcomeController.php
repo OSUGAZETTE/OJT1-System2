@@ -32,6 +32,7 @@ class WelcomeController extends Controller
 
     public function gazette(){
         $downloadpdf = MeetingModel::search()->where('MeetingShow', 'Shown')->orderBy('MeetingDate', 'des')->paginate(10);
+<<<<<<< HEAD
         return view('gazette', ['meetings' => $downloadpdf]);
     }
 
@@ -101,6 +102,38 @@ class WelcomeController extends Controller
                                         ->orderBy('MeetingDate', 'des')
                                         ->paginate(10);       
             return view('gazette', ['meetings' => $meetings]);
+=======
+        
+        return view('welcome', ['meetings' => $downloadpdf]);
+    }
+
+    public function dateSearch()
+    {
+        $msearch = Input::get('month');
+        $ysearch = Input::get('year');
+        
+        if($msearch == "Month" && $ysearch == "1900"){
+            return redirect()->route('Welcome'); 
+        }
+        elseif ($msearch != "Month" && $ysearch == "1900"){
+            $meetings = MeetingModel::whereMonth('MeetingDate', '=', $msearch)
+                                    ->orderBy('MeetingDate', 'des')
+                                    ->paginate(10);
+            return view('welcome', ['meetings' => $meetings]);
+        }
+        elseif ( $msearch == "Month" && $ysearch != "1900"){
+            $meetings = MeetingModel::whereYear('MeetingDate', '=', $ysearch)
+                                    ->orderBy('MeetingDate', 'des')
+                                    ->paginate(10);
+            return view('welcome', ['meetings' => $meetings]);
+        }
+        elseif ( $msearch != "Month" && $ysearch != "1900"){
+            $meetings = MeetingModel::whereYear('MeetingDate', '=', $ysearch)
+                                    ->whereMonth('MeetingDate', '=', $msearch)
+                                    ->orderBy('MeetingDate', 'des')
+                                    ->paginate(10);
+            return view('welcome', ['meetings' => $meetings]);
+>>>>>>> fca653f7858ccb9756f6e8e1be82494d8e80abd4
         }
     }
 }

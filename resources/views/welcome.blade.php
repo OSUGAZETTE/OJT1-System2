@@ -38,6 +38,7 @@
 
 @section('content')
 
+<<<<<<< HEAD
     <!-- Latest Info Section -->
     <section id="LI" class="content-section bg-white text-dark">
       <div class="container-fluid">
@@ -128,6 +129,56 @@
                 </div>
               </div>
 
+=======
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="my-0">
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-danger display-5 mb-3">Gazette</h1>
+        </div>
+        <div class="col-md-12">
+          <div class="pull-right">
+              <form method="GET" action="{{ url('/') }}" role="search" class="form-inline">
+                <div class="form-group custom-search-form">
+                    <input type="text" class="form-control " name="search" placeholder="Search...">
+                      <span class="input-group-btn">
+                        <button class="mi btn text-white btn-danger" type="submit">
+                            Submit
+                        </button>
+                      </span>
+                </div>
+              </form>
+              <form method="GET" action="{{ url('Welcome/Date') }}" role="search" class="navbar-form navbar-left mb-0">
+                <div class="input-group custom-search-form">
+                    <select name="month">
+                      <option value="Month">Month</option>
+                      <option value="01">January</option>
+                      <option value="02">February</option>
+                      <option value="03">March</option>
+                      <option value="04">April</option>
+                      <option value="05">May</option>
+                      <option value="06">June</option>
+                      <option value="07">July</option>
+                      <option value="08">August</option>
+                      <option value="09">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <select id="year" name="year">
+                      <option value="0">Year</option>
+                    </select>
+                    <button class="mi btn text-white btn-danger" type="submit">
+                            Submit
+                    </button>
+                </div>
+              </form>
+>>>>>>> fca653f7858ccb9756f6e8e1be82494d8e80abd4
             </div>
           </div>
         </div>
@@ -236,5 +287,24 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </section>
+=======
+    </div>
+  </div>
+
+<script>
+  var start = 1900;
+    var end = new Date().getFullYear();
+    var options = "";
+    for(var year = start ; year <=end; year++){
+      options += "<option>"+ year +"</option>";
+    }
+    document.getElementById("year").innerHTML = options;
+</script>
+
+
+
+
+>>>>>>> fca653f7858ccb9756f6e8e1be82494d8e80abd4
 @endsection

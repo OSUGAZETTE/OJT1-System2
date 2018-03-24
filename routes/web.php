@@ -11,15 +11,25 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', 'WelcomeController@welcome')->name('home');
 Route::get('/gazette', 'WelcomeController@gazette')->name('gazette');
 Route::get('/gazette/search', 'WelcomeController@Search')->name('/gazette/search');
+=======
+Route::get('/', 'WelcomeController@welcome')->name('Welcome');
+Route::get('/Welcome/Date', 'WelcomeController@dateSearch')->name('Welcome/Date');
+>>>>>>> fca653f7858ccb9756f6e8e1be82494d8e80abd4
 /*Route::get('/admin', 'AdminController@welcome')->name('WelcomeAdmin');*/
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/Dashboard', 'HomeController@index')->name('Dashboard');
 Route::get('/Dashboard/search', 'HomeController@dateSearch')->name('/Dashboard/search');
+=======
+Route::get('/Home', 'HomeController@index')->name('Home');
+Route::get('/Date', 'HomeController@dateSearch');
+>>>>>>> fca653f7858ccb9756f6e8e1be82494d8e80abd4
 Route::get('/Upload', 'UploadController@index')->name('Upload');
 Route::post('/Upload', 'UploadController@uploadpdf')->name('Uploadpdf');
 
