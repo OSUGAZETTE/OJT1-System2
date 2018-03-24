@@ -1,44 +1,40 @@
-@extends('layouts.home')
+@extends('layouts.auth')
 
-@section('title')
-  <title>Admim Reset Password | USeP OSU</title>
+@section('formsubmit')
+  method="POST" action="{{ route('password.email') }}"
 @endsection
 
-@section('content')
-  <div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8 d-flex flex-column align-items-center gradient-overlay" style="height: 100vh; background-image: url('../img/bg.jpg'); background-size: cover; background-position: center;">
-          <div class="my-auto w-100 pl-4">
-            <img class="img-fluid d-block mb-2" src="../img/useplogo.png" style="position:relative; height: 100%;">
-            <h1 class="display-2 mt-1 text-white" style="position:relative;">OSU</h1>
-            <hr class="m-0" style="background-color: snow; position:relative;">
-            <p class="lead mt-1 text-white" style="font-size: 25px; position:relative;">Office of the Secretary of the University</p>
+@section('formtitle')
+  OSU - Forgot Password
+@endsection
+
+@section('formcontent')
+  @if (count($errors))
+              <ul>
+                  @foreach($errors->all() as $error)
+                  <div class="alert alert-danger" role="alert">
+                    {{ $error }}
+                  </div>
+                  @endforeach
+              </ul>
+          @endif
+          <div class="wrap-input100 validate-input" data-validate = "Valid email is required">
+            <input class="input100" value="{{ old('email') }}"  type="text" name="email" autocomplete="off">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Email</span>
           </div>
-        </div>
-        <div class="col-md-4 d-flex flex-column align-items-center bg-white px-4" style="height:100vh; ">
-          <div class="my-auto w-100 px-2">
-            <h3 class="text-center text-dark mb-2">Forgot Password</h3>
-            <hr class="my-3">
-            @if ($errors->has('email'))
-                <p class="text-center" style="background-color: #a53131;color: white;padding: 5px;">
-                    {{ $errors->first('email') }}
-                </p>
-            @endif
-            <form class="" method="POST" action="{{ route('password.email') }}"">
-              {{ csrf_field() }}
-              <div class="form-group"> <label class="text-dark">Email address</label>
-                <input type="email" name="email" class="form-control" placeholder="" value="{{ old('email') }}" required>
-                
-              </div>
-              <button type="submit" class="btn btn-danger btn-block w-100 btn-lg"> Send Password Reset Link</button>
-            </form>
-            <br/>
-            <small style="color: grey; font-size: 15px;">Want to go back? </small>
-            <a href="{{ url('login') }}" >Login</a>
+
+          <div class="flex-sb-m w-full p-t-3 p-b-32">
+            <div>
+              <a href="{{ route('login') }}" class="txt1">
+                Want to Go Back?
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      
+          <div class="container-login100-form-btn">
+            <button type="submit" class="login100-form-btn">
+              Submit
+            </button>
+          </div>
 @endsection

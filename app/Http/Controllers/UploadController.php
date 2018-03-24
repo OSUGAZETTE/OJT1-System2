@@ -40,6 +40,15 @@ class UploadController extends Controller
         $meetingdate = Input::get('date');
         $venue = Input::get('venue');
         $note = Input::get('note');
+        $tags = Input::get('tags');
+
+        $tags = preg_replace('/\W/',' ', $tags);
+        $tags = preg_replace('/\s+/', ' ', $tags);
+        $tags = trim($tags);
+        $tags = explode(' ', $tags);
+        $tags = array_unique($tags);
+        $tags = implode(', ', $tags);
+
 
         //Validation for both the input in which both of them are required
         $rules = array(
@@ -47,6 +56,7 @@ class UploadController extends Controller
             'meeting_name' => 'required|unique:meeting,MeetingName',
             'date' => 'required|date',
             'venue' => 'required',
+            'tags' => 'required'
         );
 
         //Check Requirements in rules
@@ -102,7 +112,8 @@ class UploadController extends Controller
                         'MeetingDate' => $usableDate,
                         'Venue' => $venue,
                         'Note' => $note,
-                        'MeetingShow' => "Shown"
+                        'MeetingShow' => "Shown",
+                        'Tags' => $tags
                 );
 
                 //insert to history database

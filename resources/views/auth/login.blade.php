@@ -1,47 +1,56 @@
-@extends('layouts.home')
+@extends('layouts.auth')
 
-@section('title')
-  <title>Admin USeP Gazette Login | USeP OSU</title>
+@section('formsubmit')
+  method="post" action="{{ route('login') }}"
 @endsection
 
-@section('content')
-  <div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8 d-flex flex-column align-items-center gradient-overlay" style="height: 100vh; background-image: url('../img/bg.jpg'); background-size: cover; background-position: center;">
-          <div class="my-auto w-100 pl-4">
-            <img class="img-fluid d-block mb-2" src="../img/useplogo.png" style="position:relative; height: 100%;">
-            <h1 class="display-2 mt-1 text-white" style="position:relative;">OSU</h1>
-            <hr class="m-0" style="background-color: snow; position:relative;">
-            <p class="lead mt-1 text-white" style="font-size: 25px; position:relative;">Office of the Secretary of the University</p>
+@section('formtitle')
+  OSU - LOGIN
+@endsection
+
+@section('formcontent')
+          @if (count($errors))
+              <ul>
+                  @foreach($errors->all() as $error)
+                  <div class="alert alert-danger" role="alert">
+                    {{ $error }}
+                  </div>
+                  @endforeach
+              </ul>
+          @endif
+          <div class="wrap-input100 validate-input" data-validate = "Valid email is required">
+            <input class="input100" value="{{ old('email') }}"  type="text" name="email" autocomplete="off">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Email</span>
           </div>
-        </div>
-        <div class="col-md-4 d-flex flex-column align-items-center bg-white px-4" style="height:100vh; ">
-          <div class="my-auto w-100 px-2">
-            <h1 class="text-center text-dark mb-2">LOGIN</h1>
-            <hr class="my-3">
-            <form class="" method="post" action="{{ route('login') }}">
-              {{ csrf_field() }}
-              <div class="form-group"> <label class="text-dark">Email address</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter email">
-              </div>
-              <div class="form-group"> <label class="text-dark">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Password"> 
-              </div>
-              <div class="form-group terms-conditions text-center">
-                <input class="checkbox-template" id="license" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <label style="" for="license">Remember me</label>
-              </div>
-              <button type="submit" class="btn btn-danger btn-block w-100 btn-lg">ENTER</button>
-            </form>
-            <br/>
-            <a href="{{ route('password.request') }}">Forgot Password?</a>
-            <br/>
-            <!--<br/>
-            <small style="color: grey; font-size: 15px;">Want to go back? </small>
-            <a href="{{ url('/admin') }}" >Home</a>-->
+          
+          
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" name="password" autocomplete="off">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Password</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+          <div class="flex-sb-m w-full p-t-3 p-b-32">
+            <div class="contact100-form-checkbox">
+              <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember"
+                {{ old('remember') ? 'checked' : '' }}>
+              <label class="label-checkbox100" for="ckb1">
+                Remember me
+              </label>
+            </div>
+
+            <div>
+              <a href="{{ route('password.request') }}" class="txt1">
+                Forgot Password?
+              </a>
+            </div>
+          </div>
+      
+          <div class="container-login100-form-btn">
+            <button type="submit" class="login100-form-btn">
+              Login
+            </button>
+          </div>
+
 @endsection

@@ -11,12 +11,15 @@
 |
 */
 
-Route::get('/', 'WelcomeController@welcome')->name('Welcome');
+Route::get('/', 'WelcomeController@welcome')->name('home');
+Route::get('/gazette', 'WelcomeController@gazette')->name('gazette');
+Route::get('/gazette/search', 'WelcomeController@Search')->name('/gazette/search');
 /*Route::get('/admin', 'AdminController@welcome')->name('WelcomeAdmin');*/
 
 Auth::routes();
 
-Route::get('/Home', 'HomeController@index')->name('Home');
+Route::get('/Dashboard', 'HomeController@index')->name('Dashboard');
+Route::get('/Dashboard/search', 'HomeController@dateSearch')->name('/Dashboard/search');
 Route::get('/Upload', 'UploadController@index')->name('Upload');
 Route::post('/Upload', 'UploadController@uploadpdf')->name('Uploadpdf');
 

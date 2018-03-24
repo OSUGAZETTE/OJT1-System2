@@ -51,7 +51,8 @@ class EditDeleteController extends Controller
             'meeting_name' => "required|unique:meeting,MeetingName,$mid,MeetingID",
             'date' => 'required|date',
             'venue' => 'required',
-            'meetingshow' => 'required'
+            'meetingshow' => 'required',
+            'tags' => 'required'
         );
 
         //Check Requirements in rules
@@ -69,9 +70,20 @@ class EditDeleteController extends Controller
                 $updatemeeting->Venue = Input::get('venue');
                 $updatemeeting->Note = Input::get('note');
                 $updatemeeting->MeetingShow = Input::get('meetingshow');
+
+                $tags = Input::get('tags');
+
+                $tags = preg_replace('/\W/',' ', $tags);
+                $tags = preg_replace('/\s+/', ' ', $tags);
+                $tags = trim($tags);
+                $tags = explode(' ', $tags);
+                $tags = array_unique($tags);
+                $tags = implode(', ', $tags);
+
+                $updatemeeting->Tags = $tags;
                 
 
-                $updateman = MeetingModel::where('MeetingName', '=', Input::get('meeting_name'))->first();
+                $updateman = Input::file('meetingfile');
                 //If the user also uploads a new file
                 if($request->hasFile('meetingfile')){
 
@@ -106,7 +118,7 @@ class EditDeleteController extends Controller
                 }
 
                 //If the user changes only the other details
-                else if ($updateman === null){
+                else if ($updateman == null){
                     //Get the new File Name and Date updated
                     $docuname = Input::get('meeting_name');
                     $date = DateTime::createFromFormat('Y-m-d', Input::get('date'));

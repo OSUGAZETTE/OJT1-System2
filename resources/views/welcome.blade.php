@@ -1,151 +1,240 @@
-@extends('layouts.home')
+@extends('layouts.landing')
 
-@section('title')
-  <title>USeP - OSU</title>
+@section('css')
+   <link href="{{ asset('landing/css/osu-landing.css') }}" rel="stylesheet">
+@endsection
+
+@section('navbar')
+   <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class=" nav-link js-scroll-trigger " style="width: 122px;" href="#LI">Latest Info</a>
+            </li>
+            <li class="nav-item">
+              <a class=" nav-link js-scroll-trigger " href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class=" nav-link js-scroll-trigger " href="#contact">Contact</a> 
+            </li>
+            <span class="dotdot bg-white mx-3" style="margin-top: 12px; border-radius: 50%; height: 15px; width: 15px;" ></span>
+            <div class="lineline dropdown-divider"></div>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{{ route('gazette') }}">Gazette</a>
+            </li>
+          </ul>
+@endsection
+
+@section('head')
+ <div class="col-lg-8 mx-auto">
+              <img class="mb-3 rounded-circle" width="150" 
+                  src="{{ asset('landing/img/useplogo.png') }}"
+                  style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+                         "/>
+              <h1 class="brand-heading mb-1">US<span class="text-lowercase">e</span>P <em>GAZETTE</em></h1>
+              <hr class="mt-1 mb-1 bg-light" />
+              <p class="intro-text mt-3 mb-3">Office of the Secretary of the President</p>
+              
+            </div>
 @endsection
 
 @section('content')
-  <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color: #782b30;">
-    <div class="container">
-      <a class="navbar-brand" href="http://www.usep.edu.ph"><b style="font-weight: 400;">USeP OSU</b></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fa d-inline fa-lg mx-2 fa-info-circle"></i>About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fa d-inline fa-lg mx-2 fa-file-pdf-o"></i>Gazette</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fa d-inline fa-lg mx-2 fa-address-book"></i>Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="py-5 d-flex align-items-center gradient-overlay" style="background-image: url('img/bg.jpg'); background-size: cover; background-position: center; height: 50vh;">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-md-3 text-white">
-          <img class="img-fluid d-block mx-auto mb-5 my-auto" src="img/useplogo.png" style="position:relative; height: 100%;"> </div>
-        <div class="col-md-9 text-white align-self-center">
-          <h1 class="display-3 mt-1">GAZETTE</h1>
-          <hr class="m-0" style="background-color: snow;">
-          <p class="lead mt-1" style="font-size: 25px">Office of the Secretary of the University</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row mb-3">
-        <div class="col-md-12">
-          <h1 class="text-danger display-5 mb-3">About Us</h1>
-          <p class="lead mb-" style="font-family: arial;">
-            <span class="ml-5"></span>The University of Southeastern Philippines Records Office is a branch of the university that handles and stores all the University’s legal documents of all campuses. They ensure the integrity, accuracy, and security of all academic records of current and former employees; builds secure employee data files and sets policy and procedure for their responsible use; maintains up-to-date course schedules, catalogs, meeting schedules; manages efficient use of classrooms.</p>
-          <p class="lead mb-" style="font-family: arial;">
-          <span class="ml-5"></span>The Records Office shall be one of the strong forces that would contribute to the attainment of the University’s goal as a premier university by ensuring the preservation, security and integrity of all University records.</p>
 
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr class="my-0">
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-danger display-5 mb-3">Gazette</h1>
-        </div>
-        <div class="col-md-12">
-        <gcse:search></gcse:search>
-          <div class="pull-right">
-              <form method="GET" action="{{ url('/') }}" role="search" class="form-inline">
-                <div class="form-group custom-search-form">
-                    <input type="text" class="form-control " name="search" placeholder="Search...">
-                      <span class="input-group-btn">
-                        <button class="mi btn text-white btn-danger" type="submit">
-                            Submit
-                        </button>
-                      </span>
+    <!-- Latest Info Section -->
+    <section id="LI" class="content-section bg-white text-dark">
+      <div class="container-fluid">
+        <div  class="row ">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="text-center mb-5">Latest BOR Meeting</h2>
+            <div class="container-fluid">
+              <div class="row">
+
+                <div class=" col-sm-12 col-md-4 px-0 ">
+                  <div class="card border-danger mb-0 w-100 h-100" 
+                       style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
+                       z-index: 10">
+                      <div class="card-header text-white text-center bg-danger">
+                        <strong>BOR MEETING</strong>
+                      </div>
+                      <div class="card-body text-dark">
+                        <h4 class="card-title text-center mt-4 mb-4">Meeting No.</h4>
+                        <hr/>
+                        <h1 class="meeitngtxt text-center my-4 py-3 text-capitalize">
+                          {{ $meetingno->MeetingName }}
+                        </h1>
+                      </div>
+                  </div>
+                </div>  
+                
+                <div class="sched col-sm-12 col-md-8 px-0">
+                   <div class="card mb-0 w-100" >
+                      <div class="card-header text-dark text-center">
+                        <strong>BOR MEETING INFO</strong>
+                      </div>
+                      <div class="card-body text-dark">
+                        <div class="container">
+                          <div class="row mt-3">
+                            <div class="col-sm-4 col-md-3 ">
+                              <strong>Meeting Venue:</strong>
+                            </div>
+                            <div class="col-sm-8 col-md-9">
+                              {{ $meetingno->Venue }}
+                            </div>
+                          </div>
+
+                          <div class="row mt-3">
+                            <div class="col-sm-4 col-md-3">
+                              <strong>Meeting Date:</strong>
+                            </div>
+                            <div class="col-sm-8 col-md-9">
+                              <?php echo date('F j Y', strtotime($meetingno->MeetingDate)); ?>
+                            </div>
+                          </div>
+
+                          <div class="row mt-3">
+                            <div class="col-sm-4 col-md-3">
+                              <strong>Meeting File:</strong>
+                            </div>
+                            <div class="col-sm-8 col-md-9">
+                              <a class="btn btn-danger btn-sm" href="{{ URL::to('/') }}Meetings/<?php echo $meetingno->MeetingFileName ?>" role="button"> 
+                                Download File
+                              </a>
+                            </div>
+                          </div>
+
+                          <div class="row mt-3">
+                            <div class="col-sm-4 col-md-3">
+                              <strong>Keywords:</strong>
+                            </div>
+                            <div class="col-sm-8 col-md-9">
+                              <?php $tags= explode(",",$meetingno->tags); ?>
+                              @foreach($tags as $tag)
+                                <span class="badge badge-danger"><?php echo trim($tag); ?></span>
+                              @endforeach
+                            </div>
+                          </div>
+                          <div class="row mt-3">
+                            <div class="col-sm-4 col-md-3">
+                              <strong>Note:</strong>
+                            </div>
+                            <div class="col-sm-8 col-md-9">
+                              {{ $meetingno->Note }}
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <hr class="my-3" />
+                        <a class="btn btn-outline-secondary btn-block" href="{{ route('gazette') }}" role="button">Show More</a>
+                      </div>
+                  </div>
                 </div>
-              </form>
-            </div>
-        </div>
-        <div class="col-md-12" style="overflow-x: auto;">
-          <table class="table table-hover table-reflow">
-            <thead class="thead-default">
-              <tr>
-                <th>BOR Meeting</th>
-                <th>Venue</th>
-                <th>Date</th>
-                <th>Document</th>
-                <th>Note</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($meetings as $meeting)
-              <tr>
-                <td><?php echo $meeting->MeetingName ?></td>
-                <td><?php echo $meeting->Venue ?></td>
-                <td><?php echo date('F j Y', strtotime($meeting->MeetingDate)); ?></td>
-                <td>
-                  <a class="btn navbar-btn ml-2 text-white btn-danger" href="{{ URL::to('/') }}/Meetings/<?php echo $meeting->MeetingFileName ?>" target="_blank"><i class="fa d-inline fa-lg fa-file-pdf-o mx-2"></i>Download File</a>
-                </td>
-                <td><?php echo $meeting->Note ?></td>
-              </tr>
-               @endforeach
-            </tbody>
-          </table>
-          {{ $meetings->links() }}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pt-5 pb-2 text-white" style="background-color: #782b30;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 text-center align-self-center">
-          <p class="mb-5"> <strong>Office of the Secretary of the President</strong>
-            <br>795 Folsom Ave, Suite 600
-            <br>San Francisco, CA 94107 </p>
-          <div class="my-3 row">
-            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-              <p class="mb-0"><i class="fa fa-phone mx-1"></i> (082) 227-8192 local 209 or 211 </p>
-            </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-              <a href="http://www.usep.edu.ph" class="text-white"><i class="fa fa-globe mx-1"></i> www.usep.edu.ph </a>
-            </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-              <p><i class="fa fa-envelope mx-1"></i> osu@usep.edu.ph</p>
+              </div>
+
             </div>
           </div>
         </div>
-        <div class="col-md-6 p-0">
-          <img class="img-fluid" src="img/location.png"> </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 mt-3">
-          <p class="text-center text-white mb-0">© Copyright 2017 Intitute of Computing - All rights reserved. </p>
+    </section>
+   
+    <hr class="my-0" style="background-color: #EEEEEE;" />
+   
+   
+     <!-- About Section -->
+    <section id="about" class="content-section bg-white text-dark">
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="text-center mb-5">About OSU</h2>
+            <div class="container-fluid">
+              <div class="row">
+                <div class=" col-sm-12 col-md-4">
+                  <div class="d-flex justify-content-center mt-4">
+                    <img class="mb-3 rounded-circle align-self-center" width="150" 
+                    src="{{ asset('landing/img/face.jpg') }}""
+                    style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+                           "/>
+                  </div>
+                  <p class="lead text-center mb-0">John Doe</p>
+                  <hr class="my-2" />
+                  <p class="text-center mb-2" style="font-size: 1.15rem; font-weight: 700;"><em>Secretary</em></p>
+                  <p class="lead text-justify mx-2" style="font-size: 1.05rem;"> <span style="margin-left: 3rem;"></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>  
+                
+                <div class="col-sm-12 col-md-8">
+                  <p class="mb-3 mt-4" style="font-size: 1.50rem;">
+                    <strong>VISION</strong>
+                  </p>
+                  <p class="text-justify" ><span style="margin-left: 3rem;"></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="mb-3 mt-4" style="font-size: 1.50rem;">
+                    <strong>MISSION</strong>
+                  </p>
+                  <p class="text-justify" ><span style="margin-left: 3rem;"></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-<script>
-  (function() {
-    var cx = '004848418752946485203:xtipyay2kg0';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-
-
-
-
+    <hr class="my-0" style="background-color: #EEEEEE;" />
+    <!-- Contact Section -->
+    <section id="contact" class="content-section bg-white text-dark">
+      <div class="container">
+        <div class="row ">
+          <div class="col-lg-12 mx-auto">
+            <h2 class="text-center mb-5">Contact</h2>
+            <div class="container-fluid">
+              <div class="row">
+                <div class=" col-sm-12 col-md-3">
+                  <div class="d-flex justify-content-center mt-4 mb-3">
+                    <i data-feather = "map-pin" style="width: 60px; height: 60px;"></i>
+                  </div>
+                  <p class="text-center mb-2" style="font-size: 1.15rem; font-weight: 700;">Location</p>
+                  <hr class="my-2" />
+                  <p class="lead mx-2 text-center" style="font-size: 1.05rem; font-size: 16px;">
+                    University of Southeastern Philippines, 
+                    Iñigo Street, Obrero, Poblacion District, 
+                    Davao City, 8000 Davao del Sur
+                  </p>
+                </div>  
+                
+                <div class=" col-sm-12 col-md-3">
+                  <div class="d-flex justify-content-center mt-4 mb-3">
+                    <i data-feather = "phone" style="width: 60px; height: 60px;"></i>
+                  </div>
+                  <p class="text-center mb-2" style="font-size: 1.15rem; font-weight: 700;">Tel. No.</p>
+                  <hr class="my-2" />
+                  <p class="lead mx-2 text-center" style="font-size: 1.05rem; font-size: 16px;">
+                    (082) 227-8192 local 209 or 211 
+                  </p>
+                </div>  
+                
+                <div class=" col-sm-12 col-md-3">
+                  <div class="d-flex justify-content-center mt-4 mb-3">
+                    <i data-feather = "globe" style="width: 60px; height: 60px;"></i>
+                  </div>
+                  <p class="text-center mb-2" style="font-size: 1.15rem; font-weight: 700;">USeP Website</p>
+                  <hr class="my-2" />
+                  <p class="lead mx-2 text-center" style="font-size: 1.05rem; font-size: 16px;">
+                     www.usep.edu.ph 
+                  </p>
+                </div>  
+                
+                <div class=" col-sm-12 col-md-3">
+                  <div class="d-flex justify-content-center mt-4 mb-3">
+                    <i data-feather = "mail" style="width: 60px; height: 60px;"></i>
+                  </div>
+                  <p class="text-center mb-2" style="font-size: 1.15rem; font-weight: 700;">Email</p>
+                  <hr class="my-2" />
+                  <p class="lead mx-2 text-center" style="font-size: 1.05rem; font-size: 16px;">
+                    osu@usep.edu.ph
+                  </p>
+                </div>  
+                
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 @endsection
